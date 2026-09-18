@@ -1,6 +1,6 @@
 [
   {
-    "id_sessao": "SES-1001-SES-1001-SES-1001-SES-1001",
+    "id_sessao": "SES-1001",
     "demanda": "Cadastro e gerenciamento de chave Pix + análise basal e recursiva",
     "termino_conversa": "resolutivo",
     "nota_csat": 5,
@@ -10,13 +10,15 @@
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T09:12:00",
-        "hora": "09:12",
+        "datahora": "2026-09-17T08:17:00",
+        "hora": "08:17",
         "cliente": "",
+        "tool": "kb-global",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Oi! Cliente! O que vc quer fazer hoje?",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "aumentar limite do cartão",
+            "aumentar limite do pix",
             "cadastrar chave pix"
           ],
           "links": [
@@ -25,7 +27,7 @@
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "aumentar limite do cartão"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
@@ -39,95 +41,88 @@
         }
       },
       {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T09:14:00",
-        "hora": "09:14",
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T08:19:00",
+        "hora": "08:19",
         "cliente": "cadastrar chave pix",
+        "tool": "pix-orchestrator",
+        "nome_intencao": "cadastro_chave_pix",
         "chatbot": {
-          "texto": "Você quer cadastrar qual tipo de chave?",
+          "texto": "Você pode cadastrar uma nova chave Pix pelo app.",
           "botoes": [
-            "CPF",
-            "celular",
-            "e-mail",
-            "chave aleatória"
+            "cadastrar agora"
+          ],
+          "links": [
+            "entender tipos de chave"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "cadastrar agora"
+            },
+            {
+              "tipo": "link",
+              "texto": "entender tipos de chave"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T08:21:00",
+        "hora": "08:21",
+        "cliente": "quero usar meu celular",
+        "tool": "pix-key-api",
+        "nome_intencao": "chave_pix_celular",
+        "chatbot": {
+          "texto": "Perfeito. O número de celular pode ser usado como chave Pix.",
+          "botoes": [
+            "continuar cadastro"
           ],
           "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "CPF"
-            },
-            {
-              "tipo": "botao",
-              "texto": "celular"
-            },
-            {
-              "tipo": "botao",
-              "texto": "e-mail"
-            },
-            {
-              "tipo": "botao",
-              "texto": "chave aleatória"
+              "texto": "continuar cadastro"
             }
           ]
         }
       },
       {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T09:16:00",
-        "hora": "09:16",
-        "cliente": "celular",
+        "datahora": "2026-09-17T08:23:00",
+        "hora": "08:23",
+        "cliente": "continuar",
+        "tool": "pix-key-api",
+        "nome_intencao": "confirmacao_dados",
         "chatbot": {
-          "texto": "Perfeito. Posso te orientar pelo passo a passo.",
+          "texto": "Antes de concluir, confirme se o número exibido no app está correto.",
           "botoes": [
-            "continuar"
+            "confirmar número",
+            "alterar número"
           ],
-          "links": [
-            "abrir área de chaves Pix"
-          ],
+          "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "continuar"
+              "texto": "confirmar número"
             },
             {
-              "tipo": "link",
-              "texto": "abrir área de chaves Pix"
+              "tipo": "botao",
+              "texto": "alterar número"
             }
           ]
         }
       },
       {
         "seq_sessao": 5,
-        "datahora": "2026-09-17T09:18:00",
-        "hora": "09:18",
-        "cliente": "continuar",
+        "datahora": "2026-09-17T08:25:00",
+        "hora": "08:25",
+        "cliente": "confirmar número",
+        "tool": "pix-key-api",
+        "nome_intencao": "cadastro_pix_sucesso",
         "chatbot": {
-          "texto": "No app, acesse Pix > Minhas chaves > Cadastrar nova chave. Depois escolha celular e confirme o número.",
-          "botoes": [
-            "consegui",
-            "preciso de ajuda"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "consegui"
-            },
-            {
-              "tipo": "botao",
-              "texto": "preciso de ajuda"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T09:20:00",
-        "hora": "09:20",
-        "cliente": "consegui",
-        "chatbot": {
-          "texto": "Ótimo! Sua solicitação foi concluída. Se quiser, posso ajudar com outro assunto.",
+          "texto": "Tudo certo. A solicitação de cadastro foi iniciada e você acompanhará o status pelo app.",
           "botoes": [],
           "links": [],
           "acoes": []
@@ -137,44 +132,80 @@
   },
   {
     "id_sessao": "SES-1002",
-    "demanda": "Contestação de compra não reconhecida no cartão",
+    "demanda": "Contestação de compra não reconhecida no cartão de crédito",
     "termino_conversa": "transbordo",
-    "nota_csat": 2,
-    "comentario_csat": "Precisei falar com um atendente.",
+    "nota_csat": 3,
+    "comentario_csat": "Precisou chamar um atendente.",
     "tipo_csat": "SMS",
     "qtd_interacoes": 4,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T10:05:00",
-        "hora": "10:05",
-        "cliente": "não reconheço uma compra",
+        "datahora": "2026-09-17T09:17:00",
+        "hora": "09:17",
+        "cliente": "",
+        "tool": "cards-api",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Entendi. A compra já aparece na sua fatura?",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "sim",
-            "não"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
-          "links": [],
+          "links": [
+            "ir pra página de pix"
+          ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "sim"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "não"
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T10:07:00",
-        "hora": "10:07",
-        "cliente": "sim",
+        "datahora": "2026-09-17T09:19:00",
+        "hora": "09:19",
+        "cliente": "ver compras recentes",
+        "tool": "cards-api",
+        "nome_intencao": "lista_compras",
         "chatbot": {
-          "texto": "Você está com o cartão em mãos?",
+          "texto": "Encontrei compras recentes no seu cartão.",
+          "botoes": [
+            "compra de hoje",
+            "compra de ontem"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "compra de hoje"
+            },
+            {
+              "tipo": "botao",
+              "texto": "compra de ontem"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T09:21:00",
+        "hora": "09:21",
+        "cliente": "compra de ontem",
+        "tool": "cards-api",
+        "nome_intencao": "detalhe_compra",
+        "chatbot": {
+          "texto": "Essa compra foi feita em estabelecimento físico. Você reconhece?",
           "botoes": [
             "sim",
             "não"
@@ -193,37 +224,14 @@
         }
       },
       {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T10:09:00",
-        "hora": "10:09",
-        "cliente": "sim",
-        "chatbot": {
-          "texto": "Posso iniciar a contestação, mas algumas situações precisam de validação com um especialista.",
-          "botoes": [
-            "contestar compra"
-          ],
-          "links": [
-            "ver fatura"
-          ],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "contestar compra"
-            },
-            {
-              "tipo": "link",
-              "texto": "ver fatura"
-            }
-          ]
-        }
-      },
-      {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T10:11:00",
-        "hora": "10:11",
-        "cliente": "contestar compra",
+        "datahora": "2026-09-17T09:23:00",
+        "hora": "09:23",
+        "cliente": "não",
+        "tool": "handoff-api",
+        "nome_intencao": "transbordo_contestacao",
         "chatbot": {
-          "texto": "Vou te encaminhar para um atendente para concluir a análise com segurança.",
+          "texto": "Vou encaminhar seu caso para um especialista continuar a contestação.",
           "botoes": [],
           "links": [],
           "acoes": []
@@ -233,52 +241,357 @@
   },
   {
     "id_sessao": "SES-1003",
-    "demanda": "Aumento de limite do cartão de crédito",
+    "demanda": "Emissão de segunda via de boleto de financiamento",
     "termino_conversa": "resolutivo",
-    "nota_csat": 4,
-    "comentario_csat": "O fluxo foi simples e rápido.",
+    "nota_csat": 5,
+    "comentario_csat": "Boleto encontrado rapidamente.",
     "tipo_csat": "CHAT IATI",
-    "qtd_interacoes": 6,
+    "qtd_interacoes": 3,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T11:20:00",
-        "hora": "11:20",
-        "cliente": "quero aumentar meu limite",
+        "datahora": "2026-09-17T10:17:00",
+        "hora": "10:17",
+        "cliente": "",
+        "tool": "billing-router",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Posso te ajudar com o limite do cartão.",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "consultar limite atual",
-            "pedir aumento"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
           "links": [
-            "entender como o limite é calculado"
+            "ir pra página de pix"
           ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "consultar limite atual"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "pedir aumento"
+              "texto": "cadastrar chave pix"
             },
             {
               "tipo": "link",
-              "texto": "entender como o limite é calculado"
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T11:22:00",
-        "hora": "11:22",
-        "cliente": "pedir aumento",
+        "datahora": "2026-09-17T10:19:00",
+        "hora": "10:19",
+        "cliente": "financiamento",
+        "tool": "financing-api",
+        "nome_intencao": "boleto_financiamento",
         "chatbot": {
-          "texto": "Qual limite você gostaria de solicitar?",
+          "texto": "Encontrei seu contrato ativo.",
           "botoes": [
-            "R$ 3.000",
+            "boleto deste mês"
+          ],
+          "links": [
+            "ver parcelas do contrato"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "boleto deste mês"
+            },
+            {
+              "tipo": "link",
+              "texto": "ver parcelas do contrato"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T10:21:00",
+        "hora": "10:21",
+        "cliente": "boleto deste mês",
+        "tool": "financing-api",
+        "nome_intencao": "segunda_via_boleto",
+        "chatbot": {
+          "texto": "Seu boleto está disponível.",
+          "botoes": [
+            "copiar código de barras"
+          ],
+          "links": [
+            "abrir boleto"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "abrir boleto"
+            },
+            {
+              "tipo": "botao",
+              "texto": "copiar código de barras"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1004",
+    "demanda": "Aumento de limite do cartão considerando análise de crédito",
+    "termino_conversa": "abandono",
+    "nota_csat": null,
+    "comentario_csat": "",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 3,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T11:17:00",
+        "hora": "11:17",
+        "cliente": "",
+        "tool": "credit-api",
+        "nome_intencao": "boas-vindas automático",
+        "chatbot": {
+          "texto": "Sobre o que você quer hoje?",
+          "botoes": [
+            "aumentar limite do pix",
+            "cadastrar chave pix"
+          ],
+          "links": [
+            "ir pra página de pix"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "aumentar limite do pix"
+            },
+            {
+              "tipo": "botao",
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T11:19:00",
+        "hora": "11:19",
+        "cliente": "consultar limite disponível",
+        "tool": "credit-api",
+        "nome_intencao": "limite_sem_oferta",
+        "chatbot": {
+          "texto": "No momento não há aumento pré-aprovado.",
+          "botoes": [
+            "receber dicas para aumentar limite"
+          ],
+          "links": [
+            "atualizar renda"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "atualizar renda"
+            },
+            {
+              "tipo": "botao",
+              "texto": "receber dicas para aumentar limite"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T11:21:00",
+        "hora": "11:21",
+        "cliente": "receber dicas",
+        "tool": "credit-api",
+        "nome_intencao": "orientacao_limite",
+        "chatbot": {
+          "texto": "Manter renda atualizada e bom histórico de pagamento pode ajudar em futuras análises.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1005",
+    "demanda": "Seguro Pet: coberturas, contratação e assistência veterinária",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 4,
+    "comentario_csat": "Explicação clara sobre as coberturas.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 5,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T12:17:00",
+        "hora": "12:17",
+        "cliente": "",
+        "tool": "insurance-kb",
+        "nome_intencao": "boas-vindas automático",
+        "chatbot": {
+          "texto": "Sobre o que você quer hoje?",
+          "botoes": [
+            "aumentar limite do pix",
+            "cadastrar chave pix"
+          ],
+          "links": [
+            "ir pra página de pix"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "aumentar limite do pix"
+            },
+            {
+              "tipo": "botao",
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T12:19:00",
+        "hora": "12:19",
+        "cliente": "ver coberturas",
+        "tool": "insurance-api",
+        "nome_intencao": "coberturas_pet",
+        "chatbot": {
+          "texto": "As coberturas variam conforme o plano e podem incluir consultas, exames e vacinas.",
+          "botoes": [
+            "comparar planos"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "comparar planos"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T12:21:00",
+        "hora": "12:21",
+        "cliente": "comparar planos",
+        "tool": "insurance-api",
+        "nome_intencao": "comparacao_planos_pet",
+        "chatbot": {
+          "texto": "Você pode comparar os planos disponíveis para o seu pet.",
+          "botoes": [],
+          "links": [
+            "comparar planos"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "comparar planos"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T12:23:00",
+        "hora": "12:23",
+        "cliente": "quero contratar",
+        "tool": "insurance-api",
+        "nome_intencao": "contratacao_pet",
+        "chatbot": {
+          "texto": "Certo. Vou iniciar a jornada de contratação.",
+          "botoes": [
+            "começar"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "começar"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T12:25:00",
+        "hora": "12:25",
+        "cliente": "começar",
+        "tool": "insurance-api",
+        "nome_intencao": "contratacao_pet_sucesso",
+        "chatbot": {
+          "texto": "Pronto. A contratação foi iniciada e você pode continuar no app.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1006",
+    "demanda": "Simulação de empréstimo pessoal e condições de pagamento",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 5,
+    "comentario_csat": "Gostei da simulação.",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 5,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T13:17:00",
+        "hora": "13:17",
+        "cliente": "",
+        "tool": "loans-api",
+        "nome_intencao": "boas-vindas automático",
+        "chatbot": {
+          "texto": "Sobre o que você quer hoje?",
+          "botoes": [
+            "aumentar limite do pix",
+            "cadastrar chave pix"
+          ],
+          "links": [
+            "ir pra página de pix"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "aumentar limite do pix"
+            },
+            {
+              "tipo": "botao",
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T13:19:00",
+        "hora": "13:19",
+        "cliente": "simular empréstimo",
+        "tool": "loans-api",
+        "nome_intencao": "valor_simulacao",
+        "chatbot": {
+          "texto": "Qual valor você deseja simular?",
+          "botoes": [
+            "R$ 2.000",
             "R$ 5.000",
             "outro valor"
           ],
@@ -286,7 +599,7 @@
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "R$ 3.000"
+              "texto": "R$ 2.000"
             },
             {
               "tipo": "botao",
@@ -301,417 +614,66 @@
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T11:24:00",
-        "hora": "11:24",
+        "datahora": "2026-09-17T13:21:00",
+        "hora": "13:21",
         "cliente": "R$ 5.000",
+        "tool": "loans-api",
+        "nome_intencao": "prazo_simulacao",
         "chatbot": {
-          "texto": "Certo. Vou verificar se existe uma oferta disponível para esse valor.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T11:26:00",
-        "hora": "11:26",
-        "cliente": "ok",
-        "chatbot": {
-          "texto": "Encontrei uma possibilidade de aumento para R$ 4.500.",
+          "texto": "Você pode escolher o prazo.",
           "botoes": [
-            "aceitar R$ 4.500",
-            "manter limite atual"
+            "12 meses",
+            "24 meses"
           ],
           "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "aceitar R$ 4.500"
+              "texto": "12 meses"
             },
             {
               "tipo": "botao",
-              "texto": "manter limite atual"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T11:28:00",
-        "hora": "11:28",
-        "cliente": "aceitar R$ 4.500",
-        "chatbot": {
-          "texto": "Tudo certo. O novo limite será atualizado no aplicativo em alguns instantes.",
-          "botoes": [],
-          "links": [
-            "acompanhar limite"
-          ],
-          "acoes": [
-            {
-              "tipo": "link",
-              "texto": "acompanhar limite"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T11:30:00",
-        "hora": "11:30",
-        "cliente": "obrigado",
-        "chatbot": {
-          "texto": "Por nada! Se precisar, estou por aqui.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-1004",
-    "demanda": "Pagamento e segunda via de boleto",
-    "termino_conversa": "abandono",
-    "nota_csat": null,
-    "comentario_csat": "",
-    "tipo_csat": "",
-    "qtd_interacoes": 3,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T12:45:00",
-        "hora": "12:45",
-        "cliente": "segunda via boleto",
-        "chatbot": {
-          "texto": "Qual boleto você procura?",
-          "botoes": [
-            "cartão de crédito",
-            "financiamento",
-            "outro boleto"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "cartão de crédito"
-            },
-            {
-              "tipo": "botao",
-              "texto": "financiamento"
-            },
-            {
-              "tipo": "botao",
-              "texto": "outro boleto"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T12:47:00",
-        "hora": "12:47",
-        "cliente": "cartão de crédito",
-        "chatbot": {
-          "texto": "Posso mostrar a fatura e a linha digitável.",
-          "botoes": [
-            "ver linha digitável"
-          ],
-          "links": [
-            "abrir fatura"
-          ],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "ver linha digitável"
-            },
-            {
-              "tipo": "link",
-              "texto": "abrir fatura"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T12:49:00",
-        "hora": "12:49",
-        "cliente": "ver linha digitável",
-        "chatbot": {
-          "texto": "A linha digitável está disponível na área de fatura do aplicativo.",
-          "botoes": [],
-          "links": [
-            "acessar fatura agora"
-          ],
-          "acoes": [
-            {
-              "tipo": "link",
-              "texto": "acessar fatura agora"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-1005",
-    "demanda": "Status de entrega do cartão físico",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 5,
-    "comentario_csat": "Consegui ver onde o cartão estava.",
-    "tipo_csat": "CHAT IATI",
-    "qtd_interacoes": 8,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T13:10:00",
-        "hora": "13:10",
-        "cliente": "onde está meu cartão?",
-        "chatbot": {
-          "texto": "Você quer acompanhar a entrega de qual cartão?",
-          "botoes": [
-            "cartão principal",
-            "cartão adicional"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "cartão principal"
-            },
-            {
-              "tipo": "botao",
-              "texto": "cartão adicional"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T13:12:00",
-        "hora": "13:12",
-        "cliente": "cartão principal",
-        "chatbot": {
-          "texto": "Encontrei uma entrega em andamento. Quer consultar o status?",
-          "botoes": [
-            "sim",
-            "não"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "sim"
-            },
-            {
-              "tipo": "botao",
-              "texto": "não"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T13:14:00",
-        "hora": "13:14",
-        "cliente": "sim",
-        "chatbot": {
-          "texto": "Seu cartão saiu para entrega hoje às 08:40.",
-          "botoes": [],
-          "links": [
-            "acompanhar entrega"
-          ],
-          "acoes": [
-            {
-              "tipo": "link",
-              "texto": "acompanhar entrega"
+              "texto": "24 meses"
             }
           ]
         }
       },
       {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T13:16:00",
-        "hora": "13:16",
-        "cliente": "qual o prazo?",
+        "datahora": "2026-09-17T13:23:00",
+        "hora": "13:23",
+        "cliente": "24 meses",
+        "tool": "loans-pricing",
+        "nome_intencao": "resultado_simulacao",
         "chatbot": {
-          "texto": "A previsão atual é até o fim do dia.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T13:18:00",
-        "hora": "13:18",
-        "cliente": "preciso estar em casa?",
-        "chatbot": {
-          "texto": "A entrega pode exigir confirmação de recebimento. Se houver tentativa sem sucesso, o status será atualizado.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T13:20:00",
-        "hora": "13:20",
-        "cliente": "tem como mudar o endereço?",
-        "chatbot": {
-          "texto": "Com a entrega já em rota, o endereço não pode ser alterado agora.",
+          "texto": "A simulação foi calculada com as condições disponíveis no momento.",
           "botoes": [
-            "entender opções"
+            "contratar"
           ],
           "links": [
-            "atualizar endereço cadastral"
-          ],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "entender opções"
-            },
-            {
-              "tipo": "link",
-              "texto": "atualizar endereço cadastral"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 7,
-        "datahora": "2026-09-17T13:22:00",
-        "hora": "13:22",
-        "cliente": "entender opções",
-        "chatbot": {
-          "texto": "Se a entrega não for concluída, você poderá solicitar uma nova tentativa pelo aplicativo.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 8,
-        "datahora": "2026-09-17T13:24:00",
-        "hora": "13:24",
-        "cliente": "beleza",
-        "chatbot": {
-          "texto": "Perfeito. Continue acompanhando pelo rastreio no app.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-1006",
-    "demanda": "Seguro Pet: cobertura, preço e contratação",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 5,
-    "comentario_csat": "Gostei de ver as coberturas antes de contratar.",
-    "tipo_csat": "SMS",
-    "qtd_interacoes": 5,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T14:22:00",
-        "hora": "14:22",
-        "cliente": "o que é seguro pet?",
-        "chatbot": {
-          "texto": "O Seguro Pet oferece serviços e coberturas para apoiar os cuidados com cães e gatos.",
-          "botoes": [
-            "ver coberturas",
-            "consultar preço"
-          ],
-          "links": [
-            "conhecer o seguro pet"
-          ],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "ver coberturas"
-            },
-            {
-              "tipo": "botao",
-              "texto": "consultar preço"
-            },
-            {
-              "tipo": "link",
-              "texto": "conhecer o seguro pet"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T14:24:00",
-        "hora": "14:24",
-        "cliente": "ver coberturas",
-        "chatbot": {
-          "texto": "As opções podem incluir consultas, exames, vacinas e assistência, conforme o plano.",
-          "botoes": [
-            "consultar preço"
-          ],
-          "links": [
-            "ver detalhes das coberturas"
-          ],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "consultar preço"
-            },
-            {
-              "tipo": "link",
-              "texto": "ver detalhes das coberturas"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T14:26:00",
-        "hora": "14:26",
-        "cliente": "consultar preço",
-        "chatbot": {
-          "texto": "O valor depende do plano e dos dados do pet.",
-          "botoes": [
-            "fazer uma simulação"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "fazer uma simulação"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T14:28:00",
-        "hora": "14:28",
-        "cliente": "fazer uma simulação",
-        "chatbot": {
-          "texto": "Você pode iniciar a simulação diretamente no aplicativo.",
-          "botoes": [],
-          "links": [
-            "simular seguro pet"
+            "ver simulação completa"
           ],
           "acoes": [
             {
               "tipo": "link",
-              "texto": "simular seguro pet"
+              "texto": "ver simulação completa"
+            },
+            {
+              "tipo": "botao",
+              "texto": "contratar"
             }
           ]
         }
       },
       {
         "seq_sessao": 5,
-        "datahora": "2026-09-17T14:30:00",
-        "hora": "14:30",
-        "cliente": "valeu",
+        "datahora": "2026-09-17T13:25:00",
+        "hora": "13:25",
+        "cliente": "não vou contratar agora",
+        "tool": "loans-api",
+        "nome_intencao": "encerramento_simulacao",
         "chatbot": {
-          "texto": "Por nada! Espero que encontre o plano ideal para o seu pet.",
+          "texto": "Sem problema. Você pode refazer a simulação quando quiser.",
           "botoes": [],
           "links": [],
           "acoes": []
@@ -721,141 +683,96 @@
   },
   {
     "id_sessao": "SES-1007",
-    "demanda": "Renegociação de empréstimo pessoal",
-    "termino_conversa": "transbordo",
-    "nota_csat": 3,
-    "comentario_csat": "O bot explicou bem, mas precisei negociar com atendente.",
+    "demanda": "Recuperação de senha e desbloqueio de acesso ao aplicativo",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 4,
+    "comentario_csat": "Consegui redefinir a senha.",
     "tipo_csat": "CHAT IATI",
-    "qtd_interacoes": 7,
+    "qtd_interacoes": 4,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T15:05:00",
-        "hora": "15:05",
-        "cliente": "quero renegociar empréstimo",
+        "datahora": "2026-09-17T14:17:00",
+        "hora": "14:17",
+        "cliente": "",
+        "tool": "auth-api",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Posso te ajudar a consultar opções para seu empréstimo.",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "ver contratos",
-            "entender renegociação"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
-          "links": [],
+          "links": [
+            "ir pra página de pix"
+          ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "ver contratos"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "entender renegociação"
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T15:07:00",
-        "hora": "15:07",
-        "cliente": "ver contratos",
+        "datahora": "2026-09-17T14:19:00",
+        "hora": "14:19",
+        "cliente": "recuperar senha",
+        "tool": "auth-api",
+        "nome_intencao": "recuperacao_senha",
         "chatbot": {
-          "texto": "Encontrei um contrato elegível para análise.",
+          "texto": "Vamos validar alguns dados de segurança pelo app.",
           "botoes": [
-            "simular renegociação"
+            "continuar"
           ],
-          "links": [
-            "ver contrato"
-          ],
+          "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "simular renegociação"
-            },
-            {
-              "tipo": "link",
-              "texto": "ver contrato"
+              "texto": "continuar"
             }
           ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T15:09:00",
-        "hora": "15:09",
-        "cliente": "simular renegociação",
+        "datahora": "2026-09-17T14:21:00",
+        "hora": "14:21",
+        "cliente": "continuar",
+        "tool": "auth-api",
+        "nome_intencao": "validacao_seguranca",
         "chatbot": {
-          "texto": "Você prefere reduzir o valor da parcela ou alterar o prazo?",
+          "texto": "Validação concluída.",
           "botoes": [
-            "reduzir parcela",
-            "alterar prazo"
+            "criar nova senha"
           ],
           "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "reduzir parcela"
-            },
-            {
-              "tipo": "botao",
-              "texto": "alterar prazo"
+              "texto": "criar nova senha"
             }
           ]
         }
       },
       {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T15:11:00",
-        "hora": "15:11",
-        "cliente": "reduzir parcela",
+        "datahora": "2026-09-17T14:23:00",
+        "hora": "14:23",
+        "cliente": "criar nova senha",
+        "tool": "auth-api",
+        "nome_intencao": "senha_redefinida",
         "chatbot": {
-          "texto": "Posso apresentar uma simulação inicial. Algumas condições dependem de análise.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T15:13:00",
-        "hora": "15:13",
-        "cliente": "mostrar",
-        "chatbot": {
-          "texto": "A simulação indica redução da parcela com aumento do prazo total.",
-          "botoes": [
-            "falar com especialista",
-            "voltar"
-          ],
-          "links": [],
-          "acoes": [
-            {
-              "tipo": "botao",
-              "texto": "falar com especialista"
-            },
-            {
-              "tipo": "botao",
-              "texto": "voltar"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T15:15:00",
-        "hora": "15:15",
-        "cliente": "falar com especialista",
-        "chatbot": {
-          "texto": "Certo. Vou direcionar você para um especialista em renegociação.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 7,
-        "datahora": "2026-09-17T15:17:00",
-        "hora": "15:17",
-        "cliente": "ok",
-        "chatbot": {
-          "texto": "O atendimento será continuado com um especialista.",
+          "texto": "Sua senha foi redefinida com sucesso.",
           "botoes": [],
           "links": [],
           "acoes": []
@@ -865,208 +782,191 @@
   },
   {
     "id_sessao": "SES-1008",
-    "demanda": "Recuperação de senha e acesso ao aplicativo",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 4,
-    "comentario_csat": "Recuperei a senha sem ligar na central.",
-    "tipo_csat": "SMS",
-    "qtd_interacoes": 4,
+    "demanda": "Consulta de investimentos e comparação entre produtos de renda fixa",
+    "termino_conversa": "abandono",
+    "nota_csat": null,
+    "comentario_csat": "",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 3,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T16:30:00",
-        "hora": "16:30",
-        "cliente": "esqueci minha senha",
+        "datahora": "2026-09-17T15:17:00",
+        "hora": "15:17",
+        "cliente": "",
+        "tool": "investments-router",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Qual acesso você quer recuperar?",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "senha do aplicativo",
-            "senha do cartão"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
-          "links": [],
+          "links": [
+            "ir pra página de pix"
+          ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "senha do aplicativo"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "senha do cartão"
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T16:32:00",
-        "hora": "16:32",
-        "cliente": "senha do aplicativo",
+        "datahora": "2026-09-17T15:19:00",
+        "hora": "15:19",
+        "cliente": "comparar renda fixa",
+        "tool": "investments-api",
+        "nome_intencao": "comparacao_renda_fixa",
         "chatbot": {
-          "texto": "Você pode redefinir a senha pelo próprio app após validar sua identidade.",
+          "texto": "Posso mostrar opções considerando prazo e liquidez.",
           "botoes": [
-            "redefinir senha"
+            "liquidez diária",
+            "prazo acima de 1 ano"
           ],
-          "links": [
-            "ajuda com acesso"
-          ],
+          "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "redefinir senha"
+              "texto": "liquidez diária"
             },
             {
-              "tipo": "link",
-              "texto": "ajuda com acesso"
+              "tipo": "botao",
+              "texto": "prazo acima de 1 ano"
             }
           ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T16:34:00",
-        "hora": "16:34",
-        "cliente": "redefinir senha",
+        "datahora": "2026-09-17T15:21:00",
+        "hora": "15:21",
+        "cliente": "liquidez diária",
+        "tool": "investments-api",
+        "nome_intencao": "renda_fixa_liquidez",
         "chatbot": {
-          "texto": "Siga as instruções exibidas na tela e confirme os dados solicitados.",
+          "texto": "Existem produtos com liquidez diária disponíveis para consulta.",
           "botoes": [],
-          "links": [],
-          "acoes": []
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T16:36:00",
-        "hora": "16:36",
-        "cliente": "consegui",
-        "chatbot": {
-          "texto": "Ótimo! Seu acesso foi recuperado.",
-          "botoes": [],
-          "links": [],
-          "acoes": []
+          "links": [
+            "ver opções no app"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "ver opções no app"
+            }
+          ]
         }
       }
     ]
   },
   {
     "id_sessao": "SES-1009",
-    "demanda": "Investimentos: CDB, liquidez e rendimento",
+    "demanda": "Atualização de dados cadastrais e endereço da conta corrente",
     "termino_conversa": "resolutivo",
     "nota_csat": 5,
-    "comentario_csat": "A explicação sobre liquidez ficou clara.",
-    "tipo_csat": "CHAT IATI",
-    "qtd_interacoes": 6,
+    "comentario_csat": "Atualização concluída.",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 4,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T17:42:00",
-        "hora": "17:42",
-        "cliente": "quero investir em cdb",
+        "datahora": "2026-09-17T16:17:00",
+        "hora": "16:17",
+        "cliente": "",
+        "tool": "profile-api",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Posso te explicar as opções de CDB disponíveis.",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "entender CDB",
-            "ver opções"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
           "links": [
-            "ir para investimentos"
+            "ir pra página de pix"
           ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "entender CDB"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "ver opções"
+              "texto": "cadastrar chave pix"
             },
             {
               "tipo": "link",
-              "texto": "ir para investimentos"
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T17:44:00",
-        "hora": "17:44",
-        "cliente": "entender CDB",
+        "datahora": "2026-09-17T16:19:00",
+        "hora": "16:19",
+        "cliente": "atualizar endereço",
+        "tool": "profile-api",
+        "nome_intencao": "atualizacao_endereco",
         "chatbot": {
-          "texto": "CDB é um título de renda fixa emitido por bancos. Rentabilidade e liquidez variam conforme o produto.",
+          "texto": "Digite o novo CEP na etapa seguinte do app.",
           "botoes": [
-            "entender liquidez",
-            "ver opções"
+            "continuar"
           ],
           "links": [],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "entender liquidez"
-            },
-            {
-              "tipo": "botao",
-              "texto": "ver opções"
+              "texto": "continuar"
             }
           ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T17:46:00",
-        "hora": "17:46",
-        "cliente": "entender liquidez",
+        "datahora": "2026-09-17T16:21:00",
+        "hora": "16:21",
+        "cliente": "continuar",
+        "tool": "address-api",
+        "nome_intencao": "confirmacao_endereco",
         "chatbot": {
-          "texto": "Liquidez indica quando você pode resgatar o investimento. Alguns CDBs têm liquidez diária; outros, somente no vencimento.",
-          "botoes": [],
+          "texto": "Endereço localizado. Confira os dados antes de confirmar.",
+          "botoes": [
+            "confirmar endereço",
+            "corrigir"
+          ],
           "links": [],
-          "acoes": []
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "confirmar endereço"
+            },
+            {
+              "tipo": "botao",
+              "texto": "corrigir"
+            }
+          ]
         }
       },
       {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T17:48:00",
-        "hora": "17:48",
-        "cliente": "e rendimento?",
+        "datahora": "2026-09-17T16:23:00",
+        "hora": "16:23",
+        "cliente": "confirmar endereço",
+        "tool": "profile-api",
+        "nome_intencao": "endereco_atualizado",
         "chatbot": {
-          "texto": "O rendimento pode ser prefixado, pós-fixado ou híbrido, conforme o produto.",
-          "botoes": [],
-          "links": [
-            "comparar investimentos"
-          ],
-          "acoes": [
-            {
-              "tipo": "link",
-              "texto": "comparar investimentos"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T17:50:00",
-        "hora": "17:50",
-        "cliente": "ver opções",
-        "chatbot": {
-          "texto": "Você pode consultar as opções disponíveis para o seu perfil diretamente na área de investimentos.",
-          "botoes": [],
-          "links": [
-            "abrir investimentos"
-          ],
-          "acoes": [
-            {
-              "tipo": "link",
-              "texto": "abrir investimentos"
-            }
-          ]
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T17:52:00",
-        "hora": "17:52",
-        "cliente": "obrigado",
-        "chatbot": {
-          "texto": "Por nada! Antes de investir, confira prazo, liquidez e condições de cada produto.",
+          "texto": "Seu endereço foi atualizado com sucesso.",
           "botoes": [],
           "links": [],
           "acoes": []
@@ -1076,97 +976,133 @@
   },
   {
     "id_sessao": "SES-1010",
-    "demanda": "Atualização de dados cadastrais da conta",
-    "termino_conversa": "abandono",
-    "nota_csat": null,
-    "comentario_csat": "",
-    "tipo_csat": "",
-    "qtd_interacoes": 3,
+    "demanda": "Rastreamento e prazo de entrega de novo cartão físico",
+    "termino_conversa": "transbordo",
+    "nota_csat": 2,
+    "comentario_csat": "O rastreio não mostrou onde estava o cartão.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 5,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T18:55:00",
-        "hora": "18:55",
-        "cliente": "quero mudar meu endereço",
+        "datahora": "2026-09-17T17:17:00",
+        "hora": "17:17",
+        "cliente": "",
+        "tool": "delivery-api",
+        "nome_intencao": "boas-vindas automático",
         "chatbot": {
-          "texto": "Você quer atualizar qual dado cadastral?",
+          "texto": "Sobre o que você quer hoje?",
           "botoes": [
-            "endereço",
-            "telefone",
-            "e-mail"
+            "aumentar limite do pix",
+            "cadastrar chave pix"
           ],
-          "links": [],
+          "links": [
+            "ir pra página de pix"
+          ],
           "acoes": [
             {
               "tipo": "botao",
-              "texto": "endereço"
+              "texto": "aumentar limite do pix"
             },
             {
               "tipo": "botao",
-              "texto": "telefone"
+              "texto": "cadastrar chave pix"
             },
             {
-              "tipo": "botao",
-              "texto": "e-mail"
+              "tipo": "link",
+              "texto": "ir pra página de pix"
             }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T18:57:00",
-        "hora": "18:57",
-        "cliente": "endereço",
+        "datahora": "2026-09-17T17:19:00",
+        "hora": "17:19",
+        "cliente": "rastrear cartão",
+        "tool": "delivery-api",
+        "nome_intencao": "rastreio_cartao",
         "chatbot": {
-          "texto": "A atualização pode ser feita no perfil do aplicativo.",
+          "texto": "Seu cartão saiu para entrega.",
           "botoes": [
-            "ver passo a passo"
+            "não recebi"
           ],
           "links": [
-            "abrir meus dados"
+            "acompanhar entrega"
           ],
           "acoes": [
             {
-              "tipo": "botao",
-              "texto": "ver passo a passo"
+              "tipo": "link",
+              "texto": "acompanhar entrega"
             },
             {
-              "tipo": "link",
-              "texto": "abrir meus dados"
+              "tipo": "botao",
+              "texto": "não recebi"
             }
           ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T18:59:00",
-        "hora": "18:59",
-        "cliente": "ver passo a passo",
+        "datahora": "2026-09-17T17:21:00",
+        "hora": "17:21",
+        "cliente": "não recebi",
+        "tool": "delivery-api",
+        "nome_intencao": "falha_entrega",
         "chatbot": {
-          "texto": "Acesse Perfil > Meus dados > Endereço e siga as instruções para confirmar a alteração.",
-          "botoes": [],
+          "texto": "A entrega consta como tentativa sem sucesso.",
+          "botoes": [
+            "confirmar endereço",
+            "falar com atendente"
+          ],
           "links": [],
-          "acoes": []
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "confirmar endereço"
+            },
+            {
+              "tipo": "botao",
+              "texto": "falar com atendente"
+            }
+          ]
         }
-      }
-    ]
-  },
-  {
-    "id_sessao": "",
-    "demanda": "Cadastro e gerenciamento de chave Pix + análise basal e recursiva",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 5,
-    "comentario_csat": "Consegui cadastrar a chave sem dificuldade.",
-    "tipo_csat": "CHAT IATI",
-    "qtd_interacoes": 1,
-    "interacoes": [
+      },
       {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T09:13:00",
-        "hora": "09:13",
-        "cliente": "ola beleza",
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T17:23:00",
+        "hora": "17:23",
+        "cliente": "confirmar endereço",
+        "tool": "delivery-api",
+        "nome_intencao": "confirmacao_endereco_entrega",
         "chatbot": {
-          "texto": "Oi, o que queres?",
+          "texto": "O endereço cadastrado está válido. Deseja tentar uma nova entrega?",
+          "botoes": [
+            "sim",
+            "falar com atendente"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "sim"
+            },
+            {
+              "tipo": "botao",
+              "texto": "falar com atendente"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T17:25:00",
+        "hora": "17:25",
+        "cliente": "falar com atendente",
+        "tool": "handoff-api",
+        "nome_intencao": "transbordo_entrega",
+        "chatbot": {
+          "texto": "Vou encaminhar você para um especialista verificar a entrega.",
           "botoes": [],
           "links": [],
           "acoes": []

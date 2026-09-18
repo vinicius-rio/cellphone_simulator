@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import html
 import json
 import re
 from pathlib import Path
@@ -21,6 +20,9 @@ OPTIONAL_COLUMNS = [
     "termino_conversa",
     "nota_csat",
     "comentario_csat",
+    "tipo_csat",
+    "tool",
+    "nome_intencao",
 ]
 
 BUTTON_RE = re.compile(r"^Bot[aã]o\s*\d+\.\s*(.+)$", re.IGNORECASE)
@@ -73,6 +75,35 @@ def parse_response(value) -> dict:
     }
 
 
+
+
+def session_value(group: pd.DataFrame, column: str):
+    """Retorna o valor da sessão e valida consistência entre as linhas."""
+    values = []
+    for value in group[column].tolist():
+        if pd.isna(value):
+            continue
+        normalized = str(value).strip() if isinstance(value, str) else value
+        if normalized == "":
+            continue
+        values.append(normalized)
+
+    if not values:
+        return None
+
+    unique = []
+    for value in values:
+        if value not in unique:
+            unique.append(value)
+
+    if len(unique) > 1:
+        session_id = "" if pd.isna(group.iloc[0]["id_sessao"]) else str(group.iloc[0]["id_sessao"])
+        raise ValueError(
+            f"A coluna '{column}' possui valores diferentes na sessão {session_id}: {unique}. "
+            "Campos de sessão devem repetir o mesmo valor em todas as linhas do mesmo id_sessao."
+        )
+    return unique[0]
+
 def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df.columns = [
@@ -111,7 +142,14 @@ def load_conversations(xlsx_path: Path, sheet_name=0) -> list[dict]:
     for session_id, group in df.groupby("id_sessao", sort=False, dropna=False):
         group = group.sort_values(["seq_sessao", "datahora"], kind="stable")
         first = group.iloc[0]
-        last = group.iloc[-1]
+
+        # Metadados no nível da sessão: o mesmo valor deve aparecer em todas as
+        # linhas do mesmo id_sessao.
+        demanda = session_value(group, "demanda")
+        termino_conversa = session_value(group, "termino_conversa")
+        nota_csat = session_value(group, "nota_csat")
+        comentario_csat = session_value(group, "comentario_csat")
+        tipo_csat = session_value(group, "tipo_csat")
 
         interactions = []
         for _, row in group.iterrows():
@@ -124,10 +162,12 @@ def load_conversations(xlsx_path: Path, sheet_name=0) -> list[dict]:
                 "datahora": dt_iso,
                 "hora": hour,
                 "cliente": "" if pd.isna(row["mensagem_cliente"]) else str(row["mensagem_cliente"]),
+                "tool": "" if pd.isna(row.get("tool")) else str(row.get("tool")).strip(),
+                "nome_intencao": "" if pd.isna(row.get("nome_intencao")) else str(row.get("nome_intencao")).strip(),
                 "chatbot": parse_response(row["resposta"]),
             })
 
-        csat = clean_value(last.get("nota_csat"))
+        csat = clean_value(nota_csat)
         try:
             if csat is not None and float(csat).is_integer():
                 csat = int(float(csat))
@@ -136,11 +176,11 @@ def load_conversations(xlsx_path: Path, sheet_name=0) -> list[dict]:
 
         conversations.append({
             "id_sessao": "" if pd.isna(session_id) else str(session_id),
-            "demanda": "" if pd.isna(first.get("demanda")) else str(first.get("demanda")),
-            "termino_conversa": "" if pd.isna(last.get("termino_conversa")) else str(last.get("termino_conversa")),
+            "demanda": "" if demanda is None else str(demanda),
+            "termino_conversa": "" if termino_conversa is None else str(termino_conversa),
             "nota_csat": csat,
-            "comentario_csat": "" if pd.isna(last.get("comentario_csat")) else str(last.get("comentario_csat")),
-            "tipo_csat": "" if pd.isna(last.get("tipo_csat")) else str(last.get("tipo_csat")).strip().upper(),
+            "comentario_csat": "" if comentario_csat is None else str(comentario_csat),
+            "tipo_csat": "" if tipo_csat is None else str(tipo_csat).strip().upper(),
             "qtd_interacoes": len(interactions),
             "interacoes": interactions,
         })
@@ -191,7 +231,7 @@ button,input,select{font:inherit}
 .day{text-align:center;color:var(--muted);font-size:12px;margin:8px 0 22px}
 .turn{position:relative;margin-bottom:22px}.client-row{display:flex;justify-content:flex-end;gap:9px;align-items:flex-end}.avatar{width:38px;height:38px;border-radius:50%;background:#333840;color:white;display:grid;place-items:center;font-size:13px;flex:0 0 auto}.client-wrap{max-width:78%;display:flex;flex-direction:column;align-items:flex-end}.bubble-client{background:var(--bubble);padding:12px 15px;border-radius:18px 18px 5px 18px;line-height:1.42;font-size:14px;white-space:pre-wrap}.time{font-size:11px;color:var(--muted);margin-top:5px;display:flex;gap:5px;align-items:center}.checks{letter-spacing:-2px;color:#68707c;font-weight:700}
 .bot-row{display:grid;grid-template-columns:26px 1fr;gap:9px;margin-top:20px}.bot-icon{color:var(--orange);font-size:22px;margin-top:1px}.bot-content{min-width:0}.bot-text{font-size:14px;line-height:1.55;white-space:pre-wrap}.choices{border:1px solid #dfe2e7;border-radius:16px;overflow:hidden;margin-top:13px;background:rgba(255,255,255,.92)}.choice{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;border-bottom:1px solid #eceef1;font-weight:700;font-size:13px}.choice:last-child{border-bottom:0}.choice.link-choice{background:#fffaf6}.chev{font-size:20px;color:#717782;font-weight:400;line-height:1}.link-arrow{font-size:15px;color:#9a4300;font-weight:800;line-height:1}
-.seq{position:absolute;left:-8px;top:-4px;background:#262a33;color:white;border-radius:8px;padding:2px 6px;font-size:9px;opacity:0;transform:translateX(-4px);transition:.15s}.turn:hover .seq{opacity:.9;transform:none}
+.turn-tooltip{position:absolute;z-index:30;left:4px;top:-8px;min-width:220px;max-width:310px;background:#242833;color:#fff;border-radius:14px;padding:11px 12px;box-shadow:0 10px 28px rgba(25,28,38,.22);opacity:0;visibility:hidden;transform:translateY(-5px);transition:.15s ease;pointer-events:none}.turn:hover .turn-tooltip{opacity:1;visibility:visible;transform:none}.tooltip-title{font-size:11px;font-weight:850;margin-bottom:8px;color:#ffd5ba}.tooltip-grid{display:grid;grid-template-columns:70px 1fr;gap:5px 9px;font-size:10px;line-height:1.35}.tooltip-label{color:#bfc4cc;font-weight:700}.tooltip-value{color:#fff;overflow-wrap:anywhere;word-break:break-word}
 .composer{height:86px;padding:12px 18px 18px;background:#fff3eb;flex:0 0 auto}.composer-inner{height:56px;background:white;border-radius:22px;border:1px solid #f0e5de;display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:#626975}.mic{font-size:21px}.meta{padding:20px;min-height:0;overflow:auto}.meta h2{font-size:15px;margin:0 0 16px}.meta-card{border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:12px;background:#fff}.label{text-transform:uppercase;letter-spacing:.08em;font-size:9px;color:var(--muted);font-weight:800;margin-bottom:6px}.value{font-size:14px;font-weight:750;overflow-wrap:anywhere}.badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800;text-transform:capitalize}.badge.resolutivo{background:#eaf7ee;color:var(--success)}.badge.transbordo{background:#fff4e5;color:var(--warning)}.badge.abandono{background:#fdecec;color:var(--danger)}.stars{letter-spacing:2px;color:#f59e0b}.comment{font-size:13px;line-height:1.5;color:#4f5560}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fafbfc}.stat strong{display:block;font-size:18px}.stat span{font-size:10px;color:var(--muted)}
 .empty{color:var(--muted);font-size:13px;text-align:center;padding:30px 10px}
 .footer-note{font-size:10px;color:#9aa0a8;margin-top:14px;line-height:1.45}
@@ -330,14 +370,14 @@ function renderChat(c){
   const day = firstDate && !Number.isNaN(firstDate.getTime()) ? firstDate.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}) : 'Conversa';
   chat.innerHTML = `<div class="day">${esc(day)}</div>` + c.interacoes.map(i => `
     <div class="turn">
-      <span class="seq">#${esc(i.seq_sessao ?? '')}</span>
-      ${i.cliente ? `<div class="client-row"><div class="client-wrap"><div class="bubble-client">${esc(i.cliente)}</div><div class="time">${esc(i.hora||'')} <span class="checks">✓✓</span></div></div><div class="avatar">VN</div></div>` : ''}
+      <div class="turn-tooltip"><div class="tooltip-title">Interação #${esc(i.seq_sessao ?? '—')}</div><div class="tooltip-grid"><span class="tooltip-label">Tool</span><span class="tooltip-value">${esc(i.tool || '—')}</span><span class="tooltip-label">Intenção</span><span class="tooltip-value">${esc(i.nome_intencao || '—')}</span></div></div>
+      ${i.cliente ? `<div class="client-row"><div class="client-wrap"><div class="bubble-client">${esc(i.cliente)}</div><div class="time">${esc(i.hora||'')} <span class="checks">✓✓</span></div></div><div class="avatar">VC</div></div>` : ''}
       ${renderBot(i)}
     </div>`).join('');
   chat.scrollTop = 0;
   const lastTime = c.interacoes?.at(-1)?.hora || c.interacoes?.[0]?.hora || '21:30';
   document.getElementById('phoneClock').textContent = lastTime;
-  document.getElementById('headSession').textContent = `${c.id_sessao} · ${c.demanda || 'Sem demanda'}`;
+  document.getElementById('headSession').textContent = c.id_sessao || 'Sessão';
 }
 
 function renderMetadata(c){
@@ -354,7 +394,7 @@ function renderMetadata(c){
     <div class="meta-card"><div class="label">Tipo CSAT</div><div class="value">${esc(c.tipo_csat || '—')}</div></div>
     <div class="meta-card"><div class="label">CSAT</div><div class="value">${esc(score)}</div><div class="stars">${esc(stars)}</div></div>
     <div class="meta-card"><div class="label">Comentário CSAT</div><div class="comment">${esc(c.comentario_csat || 'Sem comentário.')}</div></div>
-    <div class="footer-note">Passe o mouse sobre uma interação para visualizar o <strong>seq_sessao</strong>. Botões e links são reconstruídos no mesmo bloco visual; links recebem a seta ↗ para identificação.</div>`;
+    <div class="footer-note">Passe o mouse sobre uma interação para visualizar <strong>seq_sessao</strong>, <strong>tool</strong> e <strong>nome_intencao</strong>. Os campos demanda, término, CSAT, comentário e tipo de CSAT pertencem à sessão e se repetem nas linhas do mesmo <strong>id_sessao</strong>.</div>`;
 }
 
 function selectSession(id){
