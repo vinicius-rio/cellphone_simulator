@@ -1,32 +1,47 @@
 [
   {
-    "id_sessao": "SES-0001",
-    "demanda": "aumentar limite do cartão múltiplo (débito ou crédito)",
+    "id_sessao": "SES-1001-SES-1001-SES-1001-SES-1001",
+    "demanda": "Cadastro e gerenciamento de chave Pix + análise basal e recursiva",
     "termino_conversa": "resolutivo",
     "nota_csat": 5,
-    "comentario_csat": "Consegui cadastrar a chave rapidamente.",
-    "qtd_interacoes": 4,
+    "comentario_csat": "Consegui cadastrar a chave sem dificuldade.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 5,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T09:06:05",
-        "hora": "09:06",
-        "cliente": "pix",
+        "datahora": "2026-09-17T09:12:00",
+        "hora": "09:12",
+        "cliente": "",
         "chatbot": {
-          "texto": "Sobre o que você quer falar de pix?",
+          "texto": "Oi! Cliente! O que vc quer fazer hoje?",
           "botoes": [
-            "aumentar limite do pix",
+            "aumentar limite do cartão",
             "cadastrar chave pix"
           ],
           "links": [
             "ir pra página de pix"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "aumentar limite do cartão"
+            },
+            {
+              "tipo": "botao",
+              "texto": "cadastrar chave pix"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir pra página de pix"
+            }
           ]
         }
       },
       {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T09:09:17",
-        "hora": "09:09",
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T09:14:00",
+        "hora": "09:14",
         "cliente": "cadastrar chave pix",
         "chatbot": {
           "texto": "Você quer cadastrar qual tipo de chave?",
@@ -36,651 +51,1125 @@
             "e-mail",
             "chave aleatória"
           ],
-          "links": []
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "CPF"
+            },
+            {
+              "tipo": "botao",
+              "texto": "celular"
+            },
+            {
+              "tipo": "botao",
+              "texto": "e-mail"
+            },
+            {
+              "tipo": "botao",
+              "texto": "chave aleatória"
+            }
+          ]
         }
       },
       {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T09:11:29",
-        "hora": "09:11",
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T09:16:00",
+        "hora": "09:16",
         "cliente": "celular",
         "chatbot": {
-          "texto": "Certo. Para cadastrar o celular, confirme se o número final 7788 é o que você deseja usar.",
+          "texto": "Perfeito. Posso te orientar pelo passo a passo.",
           "botoes": [
-            "sim, continuar",
-            "usar outro número"
+            "continuar"
           ],
-          "links": []
+          "links": [
+            "abrir área de chaves Pix"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "continuar"
+            },
+            {
+              "tipo": "link",
+              "texto": "abrir área de chaves Pix"
+            }
+          ]
         }
       },
       {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T09:13:16",
-        "hora": "09:13",
-        "cliente": "sim, continuar",
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T09:18:00",
+        "hora": "09:18",
+        "cliente": "continuar",
         "chatbot": {
-          "texto": "Pronto! Sua solicitação de cadastro da chave Pix foi iniciada. Você pode acompanhar pela área Pix.",
-          "botoes": [],
-          "links": [
-            "acompanhar cadastro"
+          "texto": "No app, acesse Pix > Minhas chaves > Cadastrar nova chave. Depois escolha celular e confirme o número.",
+          "botoes": [
+            "consegui",
+            "preciso de ajuda"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "consegui"
+            },
+            {
+              "tipo": "botao",
+              "texto": "preciso de ajuda"
+            }
           ]
+        }
+      },
+      {
+        "seq_sessao": 6,
+        "datahora": "2026-09-17T09:20:00",
+        "hora": "09:20",
+        "cliente": "consegui",
+        "chatbot": {
+          "texto": "Ótimo! Sua solicitação foi concluída. Se quiser, posso ajudar com outro assunto.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
         }
       }
     ]
   },
   {
-    "id_sessao": "SES-0002",
-    "demanda": "Cartão",
+    "id_sessao": "SES-1002",
+    "demanda": "Contestação de compra não reconhecida no cartão",
     "termino_conversa": "transbordo",
     "nota_csat": 2,
-    "comentario_csat": "Precisou transferir para um atendente.",
-    "qtd_interacoes": 5,
+    "comentario_csat": "Precisei falar com um atendente.",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 4,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T09:53:33",
-        "hora": "09:53",
-        "cliente": "meu cartão foi bloqueado",
-        "chatbot": {
-          "texto": "Posso te ajudar com o bloqueio do cartão. O que aconteceu?",
-          "botoes": [
-            "errei a senha",
-            "não reconheço uma compra",
-            "outro motivo"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T09:57:38",
-        "hora": "09:57",
+        "datahora": "2026-09-17T10:05:00",
+        "hora": "10:05",
         "cliente": "não reconheço uma compra",
         "chatbot": {
-          "texto": "Entendi. Você quer contestar uma compra ou bloquear o cartão preventivamente?",
+          "texto": "Entendi. A compra já aparece na sua fatura?",
           "botoes": [
-            "contestar compra",
-            "bloquear cartão"
+            "sim",
+            "não"
           ],
-          "links": []
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "sim"
+            },
+            {
+              "tipo": "botao",
+              "texto": "não"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T10:07:00",
+        "hora": "10:07",
+        "cliente": "sim",
+        "chatbot": {
+          "texto": "Você está com o cartão em mãos?",
+          "botoes": [
+            "sim",
+            "não"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "sim"
+            },
+            {
+              "tipo": "botao",
+              "texto": "não"
+            }
+          ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T09:58:43",
-        "hora": "09:58",
+        "datahora": "2026-09-17T10:09:00",
+        "hora": "10:09",
+        "cliente": "sim",
+        "chatbot": {
+          "texto": "Posso iniciar a contestação, mas algumas situações precisam de validação com um especialista.",
+          "botoes": [
+            "contestar compra"
+          ],
+          "links": [
+            "ver fatura"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "contestar compra"
+            },
+            {
+              "tipo": "link",
+              "texto": "ver fatura"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T10:11:00",
+        "hora": "10:11",
         "cliente": "contestar compra",
         "chatbot": {
-          "texto": "Vou precisar confirmar algumas informações da transação.",
-          "botoes": [
-            "continuar"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T10:00:55",
-        "hora": "10:00",
-        "cliente": "continuar",
-        "chatbot": {
-          "texto": "Não consegui concluir essa análise por aqui. Vou te direcionar para um especialista.",
+          "texto": "Vou te encaminhar para um atendente para concluir a análise com segurança.",
           "botoes": [],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T10:02:28",
-        "hora": "10:02",
-        "cliente": "ok",
-        "chatbot": {
-          "texto": "Aguarde um instante enquanto faço a transferência.",
-          "botoes": [],
-          "links": []
+          "links": [],
+          "acoes": []
         }
       }
     ]
   },
   {
-    "id_sessao": "SES-0003",
-    "demanda": "Boleto",
+    "id_sessao": "SES-1003",
+    "demanda": "Aumento de limite do cartão de crédito",
     "termino_conversa": "resolutivo",
     "nota_csat": 4,
-    "comentario_csat": "Encontrei o boleto que precisava.",
-    "qtd_interacoes": 3,
+    "comentario_csat": "O fluxo foi simples e rápido.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 6,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T10:41:47",
-        "hora": "10:41",
-        "cliente": "segunda via boleto",
-        "chatbot": {
-          "texto": "Você quer consultar um boleto de qual produto?",
-          "botoes": [
-            "financiamento",
-            "cartão",
-            "empréstimo"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T10:45:59",
-        "hora": "10:45",
-        "cliente": "financiamento",
-        "chatbot": {
-          "texto": "Encontrei seu financiamento. Qual boleto você quer consultar?",
-          "botoes": [
-            "parcela atual",
-            "parcela em atraso"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T10:50:32",
-        "hora": "10:50",
-        "cliente": "parcela atual",
-        "chatbot": {
-          "texto": "Seu boleto da parcela atual está disponível.",
-          "botoes": [],
-          "links": [
-            "visualizar boleto"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-0004",
-    "demanda": "Limite",
-    "termino_conversa": "abandono",
-    "nota_csat": null,
-    "comentario_csat": "",
-    "qtd_interacoes": 4,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T11:29:05",
-        "hora": "11:29",
+        "datahora": "2026-09-17T11:20:00",
+        "hora": "11:20",
         "cliente": "quero aumentar meu limite",
         "chatbot": {
-          "texto": "Posso te ajudar com isso. Você quer aumentar o limite de qual produto?",
+          "texto": "Posso te ajudar com o limite do cartão.",
           "botoes": [
-            "cartão",
-            "pix",
-            "cheque especial"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T11:31:52",
-        "hora": "11:31",
-        "cliente": "cartão",
-        "chatbot": {
-          "texto": "No momento, seu limite disponível é de R$ 4.800. Quer solicitar uma nova análise?",
-          "botoes": [
-            "solicitar análise",
-            "agora não"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T11:36:10",
-        "hora": "11:36",
-        "cliente": "solicitar análise",
-        "chatbot": {
-          "texto": "Antes de continuar, preciso que você atualize sua renda mensal.",
-          "botoes": [],
-          "links": [
-            "atualizar renda"
-          ]
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T11:39:22",
-        "hora": "11:39",
-        "cliente": "não quero atualizar agora",
-        "chatbot": {
-          "texto": "Sem problemas. Quando quiser, é só voltar por aqui.",
-          "botoes": [],
-          "links": []
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-0005",
-    "demanda": "Seguro Pet",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 5,
-    "comentario_csat": "Explicação clara dos planos.",
-    "qtd_interacoes": 5,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T12:15:18",
-        "hora": "12:15",
-        "cliente": "o que é seguro pet?",
-        "chatbot": {
-          "texto": "O Seguro Pet é uma proteção voltada para a saúde e o bem-estar de cães e gatos, com serviços que variam conforme o plano escolhido.",
-          "botoes": [
-            "conhecer os planos"
+            "consultar limite atual",
+            "pedir aumento"
           ],
           "links": [
-            "ver detalhes do seguro pet"
+            "entender como o limite é calculado"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "consultar limite atual"
+            },
+            {
+              "tipo": "botao",
+              "texto": "pedir aumento"
+            },
+            {
+              "tipo": "link",
+              "texto": "entender como o limite é calculado"
+            }
           ]
         }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T12:16:23",
-        "hora": "12:16",
-        "cliente": "conhecer os planos",
+        "datahora": "2026-09-17T11:22:00",
+        "hora": "11:22",
+        "cliente": "pedir aumento",
         "chatbot": {
-          "texto": "Temos opções com diferentes coberturas. Qual você quer conhecer?",
+          "texto": "Qual limite você gostaria de solicitar?",
           "botoes": [
-            "plano bronze",
-            "plano prata",
-            "plano ouro"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T12:20:28",
-        "hora": "12:20",
-        "cliente": "plano bronze",
-        "chatbot": {
-          "texto": "O Plano Bronze inclui consultas e alguns procedimentos básicos, conforme a rede credenciada.",
-          "botoes": [
-            "ver preço",
-            "comparar planos"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T12:23:46",
-        "hora": "12:23",
-        "cliente": "ver preço",
-        "chatbot": {
-          "texto": "O valor depende dos dados do pet e da região.",
-          "botoes": [
-            "simular agora"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T12:26:51",
-        "hora": "12:26",
-        "cliente": "simular agora",
-        "chatbot": {
-          "texto": "Para continuar a simulação, acesse a página do produto.",
-          "botoes": [],
-          "links": [
-            "simular seguro pet"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-0006",
-    "demanda": "Empréstimo",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 3,
-    "comentario_csat": "Funcionou, mas achei o fluxo longo.",
-    "qtd_interacoes": 6,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T13:04:33",
-        "hora": "13:04",
-        "cliente": "preciso de dinheiro",
-        "chatbot": {
-          "texto": "Posso te mostrar opções de crédito disponíveis.",
-          "botoes": [
-            "empréstimo pessoal",
-            "antecipação",
-            "outras opções"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T13:05:58",
-        "hora": "13:05",
-        "cliente": "empréstimo pessoal",
-        "chatbot": {
-          "texto": "Você quer simular um novo empréstimo ou consultar um contrato?",
-          "botoes": [
-            "simular",
-            "consultar contrato"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T13:07:31",
-        "hora": "13:07",
-        "cliente": "simular",
-        "chatbot": {
-          "texto": "Quanto você gostaria de simular?",
-          "botoes": [
-            "R$ 1.000",
             "R$ 3.000",
-            "R$ 5.000"
+            "R$ 5.000",
+            "outro valor"
           ],
-          "links": []
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "R$ 3.000"
+            },
+            {
+              "tipo": "botao",
+              "texto": "R$ 5.000"
+            },
+            {
+              "tipo": "botao",
+              "texto": "outro valor"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T11:24:00",
+        "hora": "11:24",
+        "cliente": "R$ 5.000",
+        "chatbot": {
+          "texto": "Certo. Vou verificar se existe uma oferta disponível para esse valor.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
         }
       },
       {
         "seq_sessao": 4,
-        "datahora": "2026-09-17T13:11:18",
-        "hora": "13:11",
-        "cliente": "R$ 3.000",
+        "datahora": "2026-09-17T11:26:00",
+        "hora": "11:26",
+        "cliente": "ok",
         "chatbot": {
-          "texto": "Encontrei uma opção para você em até 18 parcelas.",
+          "texto": "Encontrei uma possibilidade de aumento para R$ 4.500.",
           "botoes": [
-            "ver condições",
-            "alterar valor"
+            "aceitar R$ 4.500",
+            "manter limite atual"
           ],
-          "links": []
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "aceitar R$ 4.500"
+            },
+            {
+              "tipo": "botao",
+              "texto": "manter limite atual"
+            }
+          ]
         }
       },
       {
         "seq_sessao": 5,
-        "datahora": "2026-09-17T13:14:51",
-        "hora": "13:14",
-        "cliente": "ver condições",
+        "datahora": "2026-09-17T11:28:00",
+        "hora": "11:28",
+        "cliente": "aceitar R$ 4.500",
         "chatbot": {
-          "texto": "A taxa e o valor final dependem da análise no momento da contratação.",
-          "botoes": [
-            "continuar"
+          "texto": "Tudo certo. O novo limite será atualizado no aplicativo em alguns instantes.",
+          "botoes": [],
+          "links": [
+            "acompanhar limite"
           ],
-          "links": []
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "acompanhar limite"
+            }
+          ]
         }
       },
       {
         "seq_sessao": 6,
-        "datahora": "2026-09-17T13:17:38",
-        "hora": "13:17",
-        "cliente": "continuar",
+        "datahora": "2026-09-17T11:30:00",
+        "hora": "11:30",
+        "cliente": "obrigado",
         "chatbot": {
-          "texto": "Você pode concluir a simulação na área de crédito.",
+          "texto": "Por nada! Se precisar, estou por aqui.",
           "botoes": [],
-          "links": [
-            "abrir área de crédito"
-          ]
+          "links": [],
+          "acoes": []
         }
       }
     ]
   },
   {
-    "id_sessao": "SES-0007",
-    "demanda": "Senha",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 5,
-    "comentario_csat": "Resolvido sem precisar falar com atendente.",
-    "qtd_interacoes": 3,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T13:48:05",
-        "hora": "13:48",
-        "cliente": "esqueci a senha do cartão",
-        "chatbot": {
-          "texto": "Posso te ajudar a consultar ou redefinir a senha do seu cartão.",
-          "botoes": [
-            "consultar senha",
-            "redefinir senha"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T13:50:23",
-        "hora": "13:50",
-        "cliente": "consultar senha",
-        "chatbot": {
-          "texto": "Por segurança, confirme o cartão que deseja consultar.",
-          "botoes": [
-            "cartão final 1234",
-            "cartão final 9876"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T13:51:35",
-        "hora": "13:51",
-        "cliente": "cartão final 1234",
-        "chatbot": {
-          "texto": "A consulta de senha está disponível na área de cartões do app.",
-          "botoes": [],
-          "links": [
-            "consultar senha do cartão"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-0008",
-    "demanda": "Investimentos",
+    "id_sessao": "SES-1004",
+    "demanda": "Pagamento e segunda via de boleto",
     "termino_conversa": "abandono",
     "nota_csat": null,
     "comentario_csat": "",
+    "tipo_csat": "",
     "qtd_interacoes": 3,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T14:35:25",
-        "hora": "14:35",
-        "cliente": "quero investir",
+        "datahora": "2026-09-17T12:45:00",
+        "hora": "12:45",
+        "cliente": "segunda via boleto",
         "chatbot": {
-          "texto": "Legal! Posso te ajudar a encontrar opções de investimento.",
+          "texto": "Qual boleto você procura?",
           "botoes": [
-            "começar a investir",
-            "ver meus investimentos"
+            "cartão de crédito",
+            "financiamento",
+            "outro boleto"
           ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T14:38:50",
-        "hora": "14:38",
-        "cliente": "começar a investir",
-        "chatbot": {
-          "texto": "Qual é o seu objetivo principal?",
-          "botoes": [
-            "reserva de emergência",
-            "curto prazo",
-            "longo prazo"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T14:42:02",
-        "hora": "14:42",
-        "cliente": "reserva de emergência",
-        "chatbot": {
-          "texto": "Para reserva de emergência, geralmente é importante considerar liquidez e risco.",
-          "botoes": [
-            "conhecer opções"
-          ],
-          "links": [
-            "aprender sobre investimentos"
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "cartão de crédito"
+            },
+            {
+              "tipo": "botao",
+              "texto": "financiamento"
+            },
+            {
+              "tipo": "botao",
+              "texto": "outro boleto"
+            }
           ]
         }
-      }
-    ]
-  },
-  {
-    "id_sessao": "SES-0009",
-    "demanda": "Conta",
-    "termino_conversa": "resolutivo",
-    "nota_csat": 4,
-    "comentario_csat": "Consegui atualizar meu endereço.",
-    "qtd_interacoes": 4,
-    "interacoes": [
-      {
-        "seq_sessao": 1,
-        "datahora": "2026-09-17T15:24:18",
-        "hora": "15:24",
-        "cliente": "quero mudar meu endereço",
-        "chatbot": {
-          "texto": "Você quer atualizar seu endereço residencial ou de correspondência?",
-          "botoes": [
-            "residencial",
-            "correspondência"
-          ],
-          "links": []
-        }
       },
       {
         "seq_sessao": 2,
-        "datahora": "2026-09-17T15:27:05",
-        "hora": "15:27",
-        "cliente": "residencial",
+        "datahora": "2026-09-17T12:47:00",
+        "hora": "12:47",
+        "cliente": "cartão de crédito",
         "chatbot": {
-          "texto": "Certo. A atualização pode ser feita pelo cadastro no app.",
+          "texto": "Posso mostrar a fatura e a linha digitável.",
           "botoes": [
-            "atualizar agora"
+            "ver linha digitável"
           ],
-          "links": []
+          "links": [
+            "abrir fatura"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "ver linha digitável"
+            },
+            {
+              "tipo": "link",
+              "texto": "abrir fatura"
+            }
+          ]
         }
       },
       {
         "seq_sessao": 3,
-        "datahora": "2026-09-17T15:30:52",
-        "hora": "15:30",
-        "cliente": "atualizar agora",
+        "datahora": "2026-09-17T12:49:00",
+        "hora": "12:49",
+        "cliente": "ver linha digitável",
         "chatbot": {
-          "texto": "Antes de continuar, tenha em mãos um comprovante de endereço recente.",
-          "botoes": [
-            "continuar"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T15:32:25",
-        "hora": "15:32",
-        "cliente": "continuar",
-        "chatbot": {
-          "texto": "Você pode concluir a atualização na área de dados cadastrais.",
+          "texto": "A linha digitável está disponível na área de fatura do aplicativo.",
           "botoes": [],
           "links": [
-            "abrir dados cadastrais"
+            "acessar fatura agora"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "acessar fatura agora"
+            }
           ]
         }
       }
     ]
   },
   {
-    "id_sessao": "SES-0010",
-    "demanda": "Entrega de cartão",
+    "id_sessao": "SES-1005",
+    "demanda": "Status de entrega do cartão físico",
     "termino_conversa": "resolutivo",
     "nota_csat": 5,
-    "comentario_csat": "Gostei de acompanhar a entrega pelo chat.",
-    "qtd_interacoes": 6,
+    "comentario_csat": "Consegui ver onde o cartão estava.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 8,
     "interacoes": [
       {
         "seq_sessao": 1,
-        "datahora": "2026-09-17T16:10:33",
-        "hora": "16:10",
+        "datahora": "2026-09-17T13:10:00",
+        "hora": "13:10",
         "cliente": "onde está meu cartão?",
         "chatbot": {
-          "texto": "Posso acompanhar a entrega do seu cartão. Qual cartão você quer consultar?",
+          "texto": "Você quer acompanhar a entrega de qual cartão?",
           "botoes": [
-            "cartão final 4567",
-            "cartão final 1122"
+            "cartão principal",
+            "cartão adicional"
           ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 2,
-        "datahora": "2026-09-17T16:12:45",
-        "hora": "16:12",
-        "cliente": "cartão final 4567",
-        "chatbot": {
-          "texto": "Seu cartão foi enviado e está a caminho do endereço cadastrado.",
-          "botoes": [
-            "acompanhar entrega",
-            "ver endereço"
-          ],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 3,
-        "datahora": "2026-09-17T16:17:10",
-        "hora": "16:17",
-        "cliente": "acompanhar entrega",
-        "chatbot": {
-          "texto": "A última atualização indica que o cartão chegou ao centro de distribuição da sua região.",
-          "botoes": [],
-          "links": [
-            "ver rastreamento"
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "cartão principal"
+            },
+            {
+              "tipo": "botao",
+              "texto": "cartão adicional"
+            }
           ]
         }
       },
       {
-        "seq_sessao": 4,
-        "datahora": "2026-09-17T16:20:57",
-        "hora": "16:20",
-        "cliente": "quando chega?",
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T13:12:00",
+        "hora": "13:12",
+        "cliente": "cartão principal",
         "chatbot": {
-          "texto": "A previsão atual é de entrega em até 2 dias úteis.",
-          "botoes": [],
-          "links": []
+          "texto": "Encontrei uma entrega em andamento. Quer consultar o status?",
+          "botoes": [
+            "sim",
+            "não"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "sim"
+            },
+            {
+              "tipo": "botao",
+              "texto": "não"
+            }
+          ]
         }
       },
       {
-        "seq_sessao": 5,
-        "datahora": "2026-09-17T16:23:44",
-        "hora": "16:23",
-        "cliente": "posso receber sem estar em casa?",
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T13:14:00",
+        "hora": "13:14",
+        "cliente": "sim",
         "chatbot": {
-          "texto": "A entrega pode exigir a presença de uma pessoa maior de idade no endereço.",
-          "botoes": [],
-          "links": []
-        }
-      },
-      {
-        "seq_sessao": 6,
-        "datahora": "2026-09-17T16:26:49",
-        "hora": "16:26",
-        "cliente": "entendi",
-        "chatbot": {
-          "texto": "Se precisar, você pode acompanhar novas atualizações por aqui.",
+          "texto": "Seu cartão saiu para entrega hoje às 08:40.",
           "botoes": [],
           "links": [
             "acompanhar entrega"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "acompanhar entrega"
+            }
           ]
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T13:16:00",
+        "hora": "13:16",
+        "cliente": "qual o prazo?",
+        "chatbot": {
+          "texto": "A previsão atual é até o fim do dia.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T13:18:00",
+        "hora": "13:18",
+        "cliente": "preciso estar em casa?",
+        "chatbot": {
+          "texto": "A entrega pode exigir confirmação de recebimento. Se houver tentativa sem sucesso, o status será atualizado.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 6,
+        "datahora": "2026-09-17T13:20:00",
+        "hora": "13:20",
+        "cliente": "tem como mudar o endereço?",
+        "chatbot": {
+          "texto": "Com a entrega já em rota, o endereço não pode ser alterado agora.",
+          "botoes": [
+            "entender opções"
+          ],
+          "links": [
+            "atualizar endereço cadastral"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "entender opções"
+            },
+            {
+              "tipo": "link",
+              "texto": "atualizar endereço cadastral"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 7,
+        "datahora": "2026-09-17T13:22:00",
+        "hora": "13:22",
+        "cliente": "entender opções",
+        "chatbot": {
+          "texto": "Se a entrega não for concluída, você poderá solicitar uma nova tentativa pelo aplicativo.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 8,
+        "datahora": "2026-09-17T13:24:00",
+        "hora": "13:24",
+        "cliente": "beleza",
+        "chatbot": {
+          "texto": "Perfeito. Continue acompanhando pelo rastreio no app.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1006",
+    "demanda": "Seguro Pet: cobertura, preço e contratação",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 5,
+    "comentario_csat": "Gostei de ver as coberturas antes de contratar.",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 5,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T14:22:00",
+        "hora": "14:22",
+        "cliente": "o que é seguro pet?",
+        "chatbot": {
+          "texto": "O Seguro Pet oferece serviços e coberturas para apoiar os cuidados com cães e gatos.",
+          "botoes": [
+            "ver coberturas",
+            "consultar preço"
+          ],
+          "links": [
+            "conhecer o seguro pet"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "ver coberturas"
+            },
+            {
+              "tipo": "botao",
+              "texto": "consultar preço"
+            },
+            {
+              "tipo": "link",
+              "texto": "conhecer o seguro pet"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T14:24:00",
+        "hora": "14:24",
+        "cliente": "ver coberturas",
+        "chatbot": {
+          "texto": "As opções podem incluir consultas, exames, vacinas e assistência, conforme o plano.",
+          "botoes": [
+            "consultar preço"
+          ],
+          "links": [
+            "ver detalhes das coberturas"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "consultar preço"
+            },
+            {
+              "tipo": "link",
+              "texto": "ver detalhes das coberturas"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T14:26:00",
+        "hora": "14:26",
+        "cliente": "consultar preço",
+        "chatbot": {
+          "texto": "O valor depende do plano e dos dados do pet.",
+          "botoes": [
+            "fazer uma simulação"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "fazer uma simulação"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T14:28:00",
+        "hora": "14:28",
+        "cliente": "fazer uma simulação",
+        "chatbot": {
+          "texto": "Você pode iniciar a simulação diretamente no aplicativo.",
+          "botoes": [],
+          "links": [
+            "simular seguro pet"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "simular seguro pet"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T14:30:00",
+        "hora": "14:30",
+        "cliente": "valeu",
+        "chatbot": {
+          "texto": "Por nada! Espero que encontre o plano ideal para o seu pet.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1007",
+    "demanda": "Renegociação de empréstimo pessoal",
+    "termino_conversa": "transbordo",
+    "nota_csat": 3,
+    "comentario_csat": "O bot explicou bem, mas precisei negociar com atendente.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 7,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T15:05:00",
+        "hora": "15:05",
+        "cliente": "quero renegociar empréstimo",
+        "chatbot": {
+          "texto": "Posso te ajudar a consultar opções para seu empréstimo.",
+          "botoes": [
+            "ver contratos",
+            "entender renegociação"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "ver contratos"
+            },
+            {
+              "tipo": "botao",
+              "texto": "entender renegociação"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T15:07:00",
+        "hora": "15:07",
+        "cliente": "ver contratos",
+        "chatbot": {
+          "texto": "Encontrei um contrato elegível para análise.",
+          "botoes": [
+            "simular renegociação"
+          ],
+          "links": [
+            "ver contrato"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "simular renegociação"
+            },
+            {
+              "tipo": "link",
+              "texto": "ver contrato"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T15:09:00",
+        "hora": "15:09",
+        "cliente": "simular renegociação",
+        "chatbot": {
+          "texto": "Você prefere reduzir o valor da parcela ou alterar o prazo?",
+          "botoes": [
+            "reduzir parcela",
+            "alterar prazo"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "reduzir parcela"
+            },
+            {
+              "tipo": "botao",
+              "texto": "alterar prazo"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T15:11:00",
+        "hora": "15:11",
+        "cliente": "reduzir parcela",
+        "chatbot": {
+          "texto": "Posso apresentar uma simulação inicial. Algumas condições dependem de análise.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T15:13:00",
+        "hora": "15:13",
+        "cliente": "mostrar",
+        "chatbot": {
+          "texto": "A simulação indica redução da parcela com aumento do prazo total.",
+          "botoes": [
+            "falar com especialista",
+            "voltar"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "falar com especialista"
+            },
+            {
+              "tipo": "botao",
+              "texto": "voltar"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 6,
+        "datahora": "2026-09-17T15:15:00",
+        "hora": "15:15",
+        "cliente": "falar com especialista",
+        "chatbot": {
+          "texto": "Certo. Vou direcionar você para um especialista em renegociação.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 7,
+        "datahora": "2026-09-17T15:17:00",
+        "hora": "15:17",
+        "cliente": "ok",
+        "chatbot": {
+          "texto": "O atendimento será continuado com um especialista.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1008",
+    "demanda": "Recuperação de senha e acesso ao aplicativo",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 4,
+    "comentario_csat": "Recuperei a senha sem ligar na central.",
+    "tipo_csat": "SMS",
+    "qtd_interacoes": 4,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T16:30:00",
+        "hora": "16:30",
+        "cliente": "esqueci minha senha",
+        "chatbot": {
+          "texto": "Qual acesso você quer recuperar?",
+          "botoes": [
+            "senha do aplicativo",
+            "senha do cartão"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "senha do aplicativo"
+            },
+            {
+              "tipo": "botao",
+              "texto": "senha do cartão"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T16:32:00",
+        "hora": "16:32",
+        "cliente": "senha do aplicativo",
+        "chatbot": {
+          "texto": "Você pode redefinir a senha pelo próprio app após validar sua identidade.",
+          "botoes": [
+            "redefinir senha"
+          ],
+          "links": [
+            "ajuda com acesso"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "redefinir senha"
+            },
+            {
+              "tipo": "link",
+              "texto": "ajuda com acesso"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T16:34:00",
+        "hora": "16:34",
+        "cliente": "redefinir senha",
+        "chatbot": {
+          "texto": "Siga as instruções exibidas na tela e confirme os dados solicitados.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T16:36:00",
+        "hora": "16:36",
+        "cliente": "consegui",
+        "chatbot": {
+          "texto": "Ótimo! Seu acesso foi recuperado.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1009",
+    "demanda": "Investimentos: CDB, liquidez e rendimento",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 5,
+    "comentario_csat": "A explicação sobre liquidez ficou clara.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 6,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T17:42:00",
+        "hora": "17:42",
+        "cliente": "quero investir em cdb",
+        "chatbot": {
+          "texto": "Posso te explicar as opções de CDB disponíveis.",
+          "botoes": [
+            "entender CDB",
+            "ver opções"
+          ],
+          "links": [
+            "ir para investimentos"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "entender CDB"
+            },
+            {
+              "tipo": "botao",
+              "texto": "ver opções"
+            },
+            {
+              "tipo": "link",
+              "texto": "ir para investimentos"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T17:44:00",
+        "hora": "17:44",
+        "cliente": "entender CDB",
+        "chatbot": {
+          "texto": "CDB é um título de renda fixa emitido por bancos. Rentabilidade e liquidez variam conforme o produto.",
+          "botoes": [
+            "entender liquidez",
+            "ver opções"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "entender liquidez"
+            },
+            {
+              "tipo": "botao",
+              "texto": "ver opções"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T17:46:00",
+        "hora": "17:46",
+        "cliente": "entender liquidez",
+        "chatbot": {
+          "texto": "Liquidez indica quando você pode resgatar o investimento. Alguns CDBs têm liquidez diária; outros, somente no vencimento.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      },
+      {
+        "seq_sessao": 4,
+        "datahora": "2026-09-17T17:48:00",
+        "hora": "17:48",
+        "cliente": "e rendimento?",
+        "chatbot": {
+          "texto": "O rendimento pode ser prefixado, pós-fixado ou híbrido, conforme o produto.",
+          "botoes": [],
+          "links": [
+            "comparar investimentos"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "comparar investimentos"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 5,
+        "datahora": "2026-09-17T17:50:00",
+        "hora": "17:50",
+        "cliente": "ver opções",
+        "chatbot": {
+          "texto": "Você pode consultar as opções disponíveis para o seu perfil diretamente na área de investimentos.",
+          "botoes": [],
+          "links": [
+            "abrir investimentos"
+          ],
+          "acoes": [
+            {
+              "tipo": "link",
+              "texto": "abrir investimentos"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 6,
+        "datahora": "2026-09-17T17:52:00",
+        "hora": "17:52",
+        "cliente": "obrigado",
+        "chatbot": {
+          "texto": "Por nada! Antes de investir, confira prazo, liquidez e condições de cada produto.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "SES-1010",
+    "demanda": "Atualização de dados cadastrais da conta",
+    "termino_conversa": "abandono",
+    "nota_csat": null,
+    "comentario_csat": "",
+    "tipo_csat": "",
+    "qtd_interacoes": 3,
+    "interacoes": [
+      {
+        "seq_sessao": 1,
+        "datahora": "2026-09-17T18:55:00",
+        "hora": "18:55",
+        "cliente": "quero mudar meu endereço",
+        "chatbot": {
+          "texto": "Você quer atualizar qual dado cadastral?",
+          "botoes": [
+            "endereço",
+            "telefone",
+            "e-mail"
+          ],
+          "links": [],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "endereço"
+            },
+            {
+              "tipo": "botao",
+              "texto": "telefone"
+            },
+            {
+              "tipo": "botao",
+              "texto": "e-mail"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T18:57:00",
+        "hora": "18:57",
+        "cliente": "endereço",
+        "chatbot": {
+          "texto": "A atualização pode ser feita no perfil do aplicativo.",
+          "botoes": [
+            "ver passo a passo"
+          ],
+          "links": [
+            "abrir meus dados"
+          ],
+          "acoes": [
+            {
+              "tipo": "botao",
+              "texto": "ver passo a passo"
+            },
+            {
+              "tipo": "link",
+              "texto": "abrir meus dados"
+            }
+          ]
+        }
+      },
+      {
+        "seq_sessao": 3,
+        "datahora": "2026-09-17T18:59:00",
+        "hora": "18:59",
+        "cliente": "ver passo a passo",
+        "chatbot": {
+          "texto": "Acesse Perfil > Meus dados > Endereço e siga as instruções para confirmar a alteração.",
+          "botoes": [],
+          "links": [],
+          "acoes": []
+        }
+      }
+    ]
+  },
+  {
+    "id_sessao": "",
+    "demanda": "Cadastro e gerenciamento de chave Pix + análise basal e recursiva",
+    "termino_conversa": "resolutivo",
+    "nota_csat": 5,
+    "comentario_csat": "Consegui cadastrar a chave sem dificuldade.",
+    "tipo_csat": "CHAT IATI",
+    "qtd_interacoes": 1,
+    "interacoes": [
+      {
+        "seq_sessao": 2,
+        "datahora": "2026-09-17T09:13:00",
+        "hora": "09:13",
+        "cliente": "ola beleza",
+        "chatbot": {
+          "texto": "Oi, o que queres?",
+          "botoes": [],
+          "links": [],
+          "acoes": []
         }
       }
     ]

@@ -33,6 +33,7 @@ chatbot_conversation_viewer/
 | `termino_conversa` | não | Ex.: resolutivo, transbordo, abandono |
 | `nota_csat` | não | Nota CSAT |
 | `comentario_csat` | não | Comentário CSAT |
+| `tipo_csat` | não | Origem do CSAT: `SMS` ou `CHAT IATI` |
 
 ## Formato de botões e links
 
@@ -45,7 +46,7 @@ Botão 2. cadastrar chave pix
 Link 1. ir pra página de pix
 ```
 
-No HTML, `Botão N.` vira um card clicável visual e `Link N.` vira um link estilizado. O prefixo e a numeração não aparecem para o analista.
+No HTML, tanto `Botão N.` quanto `Link N.` aparecem dentro do mesmo bloco visual de opções. Botões usam a seta `›` e links usam `↗`, preservando a identificação sem poluir a interface. O prefixo e a numeração não aparecem para o analista.
 
 ## Como executar
 
@@ -77,7 +78,7 @@ python src/build_viewer.py --input caminho/minha_base.xlsx --output dist/index.h
 
 ## Base fictícia
 
-`data/conversas_ficticias.xlsx` contém 10 sessões fictícias, com 3 a 6 interações por sessão, cobrindo demandas como Pix, cartão, boleto, limite, Seguro Pet, empréstimo, senha, investimentos, conta e entrega de cartão.
+`data/conversas_ficticias.xlsx` contém 10 sessões fictícias, com 3 a 8 interações por sessão, cobrindo demandas como Pix, cartão, boleto, limite, Seguro Pet, empréstimo, senha, investimentos, conta e entrega de cartão.
 
 ## Interface
 
@@ -87,10 +88,10 @@ python src/build_viewer.py --input caminho/minha_base.xlsx --output dist/index.h
 - scroll interno da conversa;
 - mensagens do cliente à direita;
 - respostas do chatbot à esquerda;
-- reconstrução automática de botões e links;
+- reconstrução automática de botões e links no mesmo bloco visual;
 - horário de cada interação;
 - `seq_sessao` visível no hover;
-- demanda, término da conversa, número de interações, duração e CSAT;
+- demanda, término da conversa, número de interações, duração, CSAT e `tipo_csat`;
 - layout responsivo para abrir também em celular.
 
 ## Observação
@@ -105,6 +106,7 @@ A lateral de sessões possui altura fixa e scroll próprio, então a página nã
 - filtro por demanda;
 - filtro por término da conversa;
 - filtro por nota CSAT, incluindo sessões sem nota;
+- filtro por `tipo_csat` (`SMS` ou `CHAT IATI`);
 - ordenação por data mais recente, mais antiga ou ID;
 - contador de sessões exibidas após os filtros;
 - botão para limpar todos os filtros.
